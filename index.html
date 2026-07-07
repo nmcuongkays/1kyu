@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Kinoukentei Machine 1kyu</title>
+  <meta name="theme-color" content="#0b4ea2">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section id="view-home" class="view active">
+      <div class="hero">
+        <h1>KINOUKENTEI<br>MACHINE 1KYU</h1>
+        <p>App ôn nhận diện hư hỏng dao cắt: tên Nhật, định nghĩa, hình và đối sách.</p>
+        <div class="top-stats">
+          <div class="stat"><b id="totalCards">0</b><span>Thẻ học</span></div>
+          <div class="stat"><b id="accuracy">0%</b><span>Độ đúng</span></div>
+          <div class="stat"><b id="wrongCount">0</b><span>Câu sai</span></div>
+        </div>
+        <div class="install-tip">iPhone: up thư mục app lên GitHub Pages/Netlify → mở Safari → Share → Add to Home Screen.</div>
+      </div>
+      <div class="toolbar">
+        <button class="primary" id="startBtn">Bắt đầu học</button>
+        <button class="secondary" id="quickQuizBtn">Quiz hình</button>
+        <button class="ghost" id="examBtn">Đề mô phỏng</button>
+      </div>
+      <div class="notice"><b>Lộ trình hôm nay:</b> <span id="todayPlan"></span></div>
+      <div class="section-title"><h2>Điểm yếu cần xử lý</h2></div>
+      <div id="weakBox" class="list"></div>
+    </section>
+
+    <section id="view-learn" class="view">
+      <div class="section-title"><h2>Thẻ học chuẩn</h2></div>
+      <input id="searchInput" class="search" placeholder="Tìm: チッピング, 摩耗, mẻ nhỏ...">
+      <div id="filterRow" class="chip-row"></div>
+      <div id="learnGrid" class="card-grid"></div>
+    </section>
+
+    <section id="view-quiz" class="view">
+      <div id="quizRoot"></div>
+    </section>
+
+    <section id="view-wrong" class="view">
+      <div class="section-title"><h2>弱点ノート — câu sai</h2></div>
+      <div id="wrongRoot"></div>
+    </section>
+
+    <section id="view-stats" class="view">
+      <div class="section-title"><h2>Thống kê & dữ liệu</h2></div>
+      <div id="statsRoot"></div>
+    </section>
+  </main>
+
+  <div id="detailModal" class="hidden" style="position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:80;overflow:auto;padding:14px">
+    <div class="app-shell" style="max-width:760px">
+      <div class="card study-card" id="detailContent"></div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <div class="nav-inner">
+      <button class="nav-btn active" data-view="home"><span class="ico">🏠</span>Trang chủ</button>
+      <button class="nav-btn" data-view="learn"><span class="ico">📚</span>Thẻ</button>
+      <button class="nav-btn" data-view="quiz"><span class="ico">✅</span>Quiz</button>
+      <button class="nav-btn" data-view="wrong"><span class="ico">🔥</span>Câu sai</button>
+      <button class="nav-btn" data-view="stats"><span class="ico">📊</span>Thống kê</button>
+    </div>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
